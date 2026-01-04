@@ -58,3 +58,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
   observer.observe(statsSection);
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+  const backHomeBtn = document.getElementById("backHomeBtn");
+
+  // Scroll to top (smooth)
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  // Show "Back to Home" only when user reaches near bottom
+  const toggleBackHome = () => {
+    if (!backHomeBtn) return;
+
+    const scrollPos = window.scrollY + window.innerHeight;
+    const pageHeight = document.documentElement.scrollHeight;
+
+    // show when you're within 120px of bottom
+    const nearBottom = pageHeight - scrollPos < 120;
+
+    backHomeBtn.classList.toggle("show", nearBottom);
+  };
+
+  window.addEventListener("scroll", toggleBackHome);
+  window.addEventListener("resize", toggleBackHome);
+  toggleBackHome();
+});
