@@ -120,5 +120,45 @@
   </a>
 </div>
 
+<!-- Scroll To Top (top-left) -->
+<button id="scrollTopBtn" class="glass-scrolltop" aria-label="Scroll to top">
+  ↑
+</button>
+
+<!-- Back To Home (mid-bottom, above nav bar) -->
+<a href="index.html" id="backHomeBtn" class="glass-backhome">
+  Back to Home
+</a>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+  const backHomeBtn = document.getElementById("backHomeBtn");
+
+  /* Scroll to top */
+  scrollTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  /* Show Back to Home near bottom */
+  const toggleBackHome = () => {
+    const scrollPos = window.scrollY + window.innerHeight;
+    const pageHeight = document.documentElement.scrollHeight;
+
+    if (pageHeight - scrollPos < 140) {
+      backHomeBtn.classList.add("show");
+    } else {
+      backHomeBtn.classList.remove("show");
+    }
+  };
+
+  window.addEventListener("scroll", toggleBackHome);
+  toggleBackHome();
+
+});
+</script>
+  
+  
 </body>
 </html>
