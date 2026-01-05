@@ -268,3 +268,67 @@ img:hover {
 .nav-item {
     text-decoration: none;
 }
+/* ===============================
+   iOS Liquid Glass Buttons
+=============================== */
+
+.glass-scrolltop{
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
+
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+
+  display: grid;
+  place-items: center;
+  z-index: 9999;
+}
+
+/* Back to Home */
+.glass-backhome{
+  position: fixed;
+  left: 50%;
+  bottom: 110px; /* sits above nav bar */
+  transform: translateX(-50%);
+
+  padding: 12px 20px;
+  border-radius: 20px;
+
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.25);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+  z-index: 9999;
+}
+
+.glass-backhome.show{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* IMPORTANT: add space so content isn't hidden */
+body{
+  padding-bottom: 160px;
+}
+
